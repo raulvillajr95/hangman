@@ -44,3 +44,48 @@ table {
 }
 
 /* My CSS */
+body {
+  background: linear-gradient(30deg, #50C878, #AFE1AF);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  font-family: 'Montserrat';
+}
+
+.container {
+  display: flex;
+  height: 12rem;
+  width: 30rem;
+  flex-direction: column;
+}
+.container .main-word {
+  font-weight: 700;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.75rem;
+  letter-spacing: .2rem;
+  color: #f3f3f3;
+}
+.container .info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .btn {
+  height: 4rem;
+}
+.container .info {
+  font-weight: 300;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 1.25rem;
+  color: #dfdfdf;
+}
