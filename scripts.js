@@ -15,6 +15,27 @@ function randomNum(b) {
 
 let currentWord = words[randomNum(words.length)-1]
 
-mainWord.textContent = `${currentWord}`
+mainWord.textContent = `${currentWord}`;
 
-console.log(currentWord)
+function replaceWithUnderScore(word) {
+  let finalWord = []
+
+  for (let i = 0; i < word.length; i++) {
+    let keepnessLevel = randomNum(3);
+    if (keepnessLevel == 3) {
+      finalWord.push('_')
+    } else {
+      finalWord.push(word[i])
+    }
+  }
+
+  return finalWord;
+}
+
+console.log(replaceWithUnderScore('banish'))
+
+// Restart
+restartBtn.addEventListener('click', () => {
+  window.location.reload();
+  guesses = 8;
+});
