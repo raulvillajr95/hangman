@@ -61,6 +61,11 @@ body {
   width: 30rem;
   flex-direction: column;
 }
+.container .result {
+  font-weight: 700;
+  text-align: center;
+  font-size: 4rem;
+}
 .container .main-word {
   font-weight: 700;
   height: 65%;

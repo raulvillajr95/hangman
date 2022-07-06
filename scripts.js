@@ -3,6 +3,7 @@ const mainWord = document.querySelector('.main-word');
 const restartBtn = document.querySelector('.btn');
 const incorrectGuess = document.querySelector('.incorrect-guess');
 const guessesRemaining = document.querySelector('.guesses-remaining');
+const result = document.querySelector('.result');
 
 // Defaults
 let guesses = 8;
@@ -33,30 +34,60 @@ function replaceWithUnderScore(word) {
 }
 
 let wordWithUnderscores = replaceWithUnderScore(currentWord)
+let wordProgressing = wordWithUnderscores
 // Plase wordWithUnderscores on screen
 // mainWord.textContent = `${wordWithUnderscores.join('')}`
 
-let missingLetters = []
-
-function addSpanAndEvent(word) {
-  for (let i = 0; i < word.length; i++) {
-    let span = document.createElement('span')
-    span.textContent = `${word[i]}`
-    mainWord.appendChild(span)
-  }
+// Place within 'span' element
+for (let i = 0; i < wordWithUnderscores.length; i++) {
+  let span = document.createElement('span')
+  span.textContent = `${wordWithUnderscores[i]}`
+  mainWord.appendChild(span)
 }
-addSpanAndEvent(wordWithUnderscores)
 
-console.log(mainWord.children)
 
+// Create list of missing letters
+let missingLetters = [];
 for (let i = 0; i < wordWithUnderscores.length; i++) {
   if (wordWithUnderscores[i] == '_') {
-    missingLetters.push(currentWord[i])
+    missingLetters.push([currentWord[i], i])
   }
 }
+
+console.log(currentWord)
+console.log(missingLetters)
+console.log(wordProgressing)
+
+let count = 0
+window.addEventListener('keydown', () => {
+  let letterPressed = window.event.key
+
+  if (missingLetters[count][1] == undefined) {
+    return;
+  }
+
+  console.log('compare', letterPressed, currentWord[missingLetters[count][1]])
+  console.log(wordProgressing, currentWord)
+
+  if (letterPressed == currentWord[missingLetters[count][1]]) {
+    mainWord.children[missingLetters[count][1]].textContent = `${letterPressed}`
+
+    console.log('TEST', mainWord.textContent)
+    if (mainWord.textContent == currentWord) {
+      result.textContent = "YOU WON"
+      result.style.color = "#3a6efb"
+    }
+    count += 1;
+  } else {
+    incorrectGuess.textContent += ` ${letterPressed}`;
+    guesses -= 1;
+    guessesRemaining.textContent = `${guesses}`
+  }
+})
 
 // Restart
 restartBtn.addEventListener('click', () => {
   window.location.reload();
   guesses = 8;
+  count = 0;
 });
