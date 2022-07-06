@@ -15,14 +15,14 @@ function randomNum(b) {
 
 let currentWord = words[randomNum(words.length)-1]
 
-mainWord.textContent = `${currentWord}`;
+// mainWord.textContent = `${currentWord}`;
 
 function replaceWithUnderScore(word) {
   let finalWord = []
 
   for (let i = 0; i < word.length; i++) {
-    let keepnessLevel = randomNum(3);
-    if (keepnessLevel == 3) {
+    let keepnessLevel = randomNum(5);
+    if (keepnessLevel == 3 || keepnessLevel == 5) {
       finalWord.push('_')
     } else {
       finalWord.push(word[i])
@@ -32,7 +32,28 @@ function replaceWithUnderScore(word) {
   return finalWord;
 }
 
-console.log(replaceWithUnderScore('banish'))
+let wordWithUnderscores = replaceWithUnderScore(currentWord)
+// Plase wordWithUnderscores on screen
+// mainWord.textContent = `${wordWithUnderscores.join('')}`
+
+let missingLetters = []
+
+function addSpanAndEvent(word) {
+  for (let i = 0; i < word.length; i++) {
+    let span = document.createElement('span')
+    span.textContent = `${word[i]}`
+    mainWord.appendChild(span)
+  }
+}
+addSpanAndEvent(wordWithUnderscores)
+
+console.log(mainWord.children)
+
+for (let i = 0; i < wordWithUnderscores.length; i++) {
+  if (wordWithUnderscores[i] == '_') {
+    missingLetters.push(currentWord[i])
+  }
+}
 
 // Restart
 restartBtn.addEventListener('click', () => {
