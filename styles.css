@@ -55,11 +55,20 @@ body {
   font-family: 'Montserrat';
 }
 
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  transform: scaleY(1.5);
+  font-size: 3rem;
+  color: #8fd1eb;
+  text-shadow: 0px 0px 15px #0056ea;
+}
 .container {
   display: flex;
-  height: 12rem;
+  height: 20rem;
   width: 30rem;
   flex-direction: column;
+  align-items: center;
 }
 .container .result {
   font-weight: 700;
@@ -76,11 +85,19 @@ body {
   letter-spacing: .2rem;
   color: #f3f3f3;
 }
+.container .typing-input {
+  margin-bottom: 1rem;
+  height: 2rem;
+  width: 5rem;
+  font-size: 1rem;
+  border-style: none;
+  border-radius: 0.2rem;
+}
 .container .info-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 30rem;
+  width: 21rem;
   margin: 0 auto;
 }
 .container .btn {
@@ -95,4 +112,9 @@ body {
   align-items: flex-end;
   font-size: 1.25rem;
   color: #dfdfdf;
+}
+.doodledee-img {
+  width: 3rem;
+  border-radius: 50%;
+  margin-top: 3rem;
 }

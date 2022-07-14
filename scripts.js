@@ -4,6 +4,7 @@ const restartBtn = document.querySelector('.btn');
 const incorrectGuess = document.querySelector('.incorrect-guess');
 const guessesRemaining = document.querySelector('.guesses-remaining');
 const result = document.querySelector('.result');
+const typingInput = document.querySelector('.typing-input');
 
 // Defaults
 let guesses = 8;
@@ -17,7 +18,6 @@ function randomNum(b) {
 
 let currentWord = words[randomNum(words.length)-1]
 
-// mainWord.textContent = `${currentWord}`;
 let finalWord;
 function replaceWithUnderScore(word) {
   finalWord = []
@@ -31,13 +31,7 @@ function replaceWithUnderScore(word) {
     }
   }
 
-  // Check that word has at least 1 under score
-  // and no all under scores
-
-  console.log("Before check", finalWord)
-
   if (finalWord.includes('_')) {
-    console.log('INCLUDES _')
 
     let alphaCount = 0;
 
@@ -46,18 +40,14 @@ function replaceWithUnderScore(word) {
         alphaCount += 1;
       };
     }
-    console.log('alphaCount',alphaCount)
     if (alphaCount >= 1) {
       alphaCount = 0;
-      console.log("final check", finalWord)
       return finalWord;
     } else {
-      console.log('NEEDS LETTER')
       finalWord = []
       replaceWithUnderScore(word)
     }
   } else {
-    console.log('REACHED')
     finalWord = []
     currentWord = words[randomNum(words.length)-1]
     replaceWithUnderScore(word)
@@ -66,8 +56,6 @@ function replaceWithUnderScore(word) {
 
 let wordWithUnderscores = replaceWithUnderScore(currentWord)
 let wordProgressing = wordWithUnderscores
-// Plase wordWithUnderscores on screen
-// mainWord.textContent = `${wordWithUnderscores.join('')}`
 
 // Place within 'span' element
 if (wordWithUnderscores == undefined) {
@@ -94,28 +82,26 @@ window.addEventListener('keydown', () => {
   let letterPressed = window.event.key
 
   if (missingLetters[count][1] == undefined || alphabet.includes(letterPressed) != true) {
-    console.log("not alpha character")
     return;
   }
 
-  console.log('compare', letterPressed, currentWord[missingLetters[count][1]])
-  console.log(wordProgressing, currentWord)
-
   if (letterPressed == currentWord[missingLetters[count][1]]) {
+    typingInput.value = '';
     mainWord.children[missingLetters[count][1]].textContent = `${letterPressed}`
 
-    console.log('TEST', mainWord.textContent)
     if (mainWord.textContent == currentWord) {
       result.textContent = "YOU WON"
       result.style.color = "#3a6efb"
     }
     count += 1;
   } else {
+    typingInput.value = '';
     guesses -= 1;
-    if (guesses <= -1) {
+    if (guesses <= 0) {
       guessesRemaining.textContent = `Done`
       result.textContent = "YOU LOSE"
       result.style.color = "#dc3545"
+      mainWord.textContent = `${currentWord}`
     } else {
       guessesRemaining.textContent = `${guesses}`
       incorrectGuess.textContent += ` ${letterPressed}`;
@@ -128,4 +114,5 @@ restartBtn.addEventListener('click', () => {
   window.location.reload();
   guesses = 8;
   count = 0;
+  typingInput.textContent = '';
 });
