@@ -73,7 +73,7 @@ body {
 .container .result {
   font-weight: 700;
   text-align: center;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 .container .main-word {
   font-weight: 700;
@@ -117,4 +117,74 @@ body {
   width: 3rem;
   border-radius: 50%;
   margin-top: 3rem;
+}
+
+/* Tablet CSS */
+@media only screen and (max-width: 70em) {
+  .title {
+    font-size: 4.5rem;
+  }
+  .container {
+    height: 50rem;
+  }
+  .container .result {
+    font-size: 3.25rem;
+  }
+  .container .main-word {
+    font-size: 3.5rem;
+    height: 50%;
+  }
+  .container .info-container {
+    margin: 2rem auto 3rem auto;
+  }
+}
+
+/* Mobile CSS */
+@media only screen and (max-width: 38em) {
+  .title {
+    font-size: 3rem;
+  }
+  .container {
+    height: 75vh;
+  }
+  .container .result {
+    font-size: 3rem;
+  }
+  .container .main-word {
+    height: 50%;
+    font-size: 2.75rem;
+  }
+  .container .info-container {
+    margin: 0 auto;
+  }
+}
+
+/* CSS for Small Mobiles */
+@media only screen and (max-width: 20em) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .container {
+    width: 27rem;
+    height: 20rem;
+  }
+  .container .result {
+    font-size: 2rem;
+  }
+  .container .main-word {
+    font-size: 2rem;
+  }
+  .container .typing-input {
+    font-size: 0.8rem;
+  }
+  .container .info-container {
+    width: 17rem;
+  }
+  .container .btn {
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+  .container .info {
+    font-size: 0.9rem;
+  }
 }
