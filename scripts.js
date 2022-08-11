@@ -92,6 +92,9 @@ window.addEventListener('keydown', () => {
     if (mainWord.textContent == currentWord) {
       result.textContent = "YOU WON"
       result.style.color = "#3a6efb"
+      
+      let dis = document.createAttribute('disabled')
+      typingInput.setAttributeNode(dis)
     }
     count += 1;
   } else {
@@ -102,6 +105,9 @@ window.addEventListener('keydown', () => {
       result.textContent = "YOU LOSE"
       result.style.color = "#dc3545"
       mainWord.textContent = `${currentWord}`
+
+      let dis = document.createAttribute('disabled')
+      typingInput.setAttributeNode(dis)
     } else {
       guessesRemaining.textContent = `${guesses}`
       incorrectGuess.textContent += ` ${letterPressed}`;
