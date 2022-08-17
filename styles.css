@@ -143,3 +143,20 @@ body {
     font-size: 0.9rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  /* My CSS */
+  body {
+    background: linear-gradient(30deg, #0C2715, #1E6234);
+  }
+  .title {
+    color: #8fd1eb;
+    text-shadow: 0px 0px 15px #0056ea;
+  }
+  .container .main-word {
+    color: #f3f3f3;
+  }
+  .container .info {
+    color: #dfdfdf;
+  }
+}
