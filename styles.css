@@ -55,9 +55,7 @@ body {
   width: 21rem;
   margin: 0 auto;
 }
-.container .btn {
-  height: 4rem;
-}
+.container .btn {height: 4rem}
 .container .info {
   font-weight: 300;
   height: 100%;
@@ -76,87 +74,53 @@ body {
 
 /* Tablet CSS */
 @media only screen and (max-width: 70em) {
-  .title {
-    font-size: 4.5rem;
-  }
-  .container {
-    height: 50rem;
-  }
-  .container .result {
-    font-size: 3.25rem;
-  }
+  .title {font-size: 4.5rem}
+  .container {height: 50rem}
+  .container .result {font-size: 3.25rem}
   .container .main-word {
     font-size: 3.5rem;
     height: 50%;
   }
-  .container .info-container {
-    margin: 2rem auto 3rem auto;
-  }
+  .container .info-container {margin: 2rem auto 3rem auto}
 }
 
 /* Mobile CSS */
 @media only screen and (max-width: 38em) {
-  .title {
-    font-size: 3rem;
-  }
-  .container {
-    height: 75vh;
-  }
-  .container .result {
-    font-size: 3rem;
-  }
+  .title {font-size: 3rem}
+  .container {height: 75vh}
+  .container .result {font-size: 3rem}
   .container .main-word {
     height: 50%;
     font-size: 2.75rem;
   }
-  .container .info-container {
-    margin: 0 auto;
-  }
+  .container .info-container {margin: 0 auto}
 }
 
 /* CSS for Small Mobiles */
 @media only screen and (max-width: 20em) {
-  .title {
-    font-size: 2.5rem;
-  }
+  .title {font-size: 2.5rem}
   .container {
     width: 27rem;
     height: 20rem;
   }
-  .container .result {
-    font-size: 2rem;
-  }
-  .container .main-word {
-    font-size: 2rem;
-  }
-  .container .typing-input {
-    font-size: 0.8rem;
-  }
-  .container .info-container {
-    width: 17rem;
-  }
+  .container .result {font-size: 2rem}
+  .container .main-word {font-size: 2rem}
+  .container .typing-input {font-size: 0.8rem}
+  .container .info-container {width: 17rem}
   .container .btn {
     height: 2rem;
     font-size: 0.8rem;
   }
-  .container .info {
-    font-size: 0.9rem;
-  }
+  .container .info {font-size: 0.9rem}
 }
 
 @media (prefers-color-scheme: dark) {
   /* My CSS */
-  body {
-    background: linear-gradient(30deg, #0C2715, #1E6234);
-  }
+  body {background: linear-gradient(30deg, #0C2715, #1E6234)}
   .title {
     color: #8fd1eb;
     text-shadow: 0px 0px 15px #0056ea;
   }
-  .container .main-word {
-    color: #f3f3f3;
-  }
-  .container .info {
-    color: #dfdfdf;
-  }
+  .container .main-word {color: #f3f3f3}
+  .container .info {color: #dfdfdf}
 }

@@ -20,7 +20,7 @@ let currentWord = words[randomNum(words.length)-1]
 
 let finalWord;
 function replaceWithUnderScore(word) {
-  finalWord = []
+  finalWord = [];
 
   for (let i = 0; i < word.length; i++) {
     let keepnessLevel = randomNum(5);
@@ -32,9 +32,7 @@ function replaceWithUnderScore(word) {
   }
 
   if (finalWord.includes('_')) {
-
     let alphaCount = 0;
-
     for (let i = 0; i < finalWord.length; i++) {
       if (alphabet.includes(finalWord[i])) {
         alphaCount += 1;
@@ -44,28 +42,28 @@ function replaceWithUnderScore(word) {
       alphaCount = 0;
       return finalWord;
     } else {
-      finalWord = []
-      replaceWithUnderScore(word)
+      finalWord = [];
+      replaceWithUnderScore(word);
     }
   } else {
-    finalWord = []
-    currentWord = words[randomNum(words.length)-1]
-    replaceWithUnderScore(word)
+    finalWord = [];
+    currentWord = words[randomNum(words.length)-1];
+    replaceWithUnderScore(word);
   }
 }
 
-let wordWithUnderscores = replaceWithUnderScore(currentWord)
-let wordProgressing = wordWithUnderscores
+let wordWithUnderscores = replaceWithUnderScore(currentWord);
+let wordProgressing = wordWithUnderscores;
 
 // Place within 'span' element
 if (wordWithUnderscores == undefined) {
-  wordWithUnderscores = replaceWithUnderScore(currentWord)
-  wordProgressing = wordWithUnderscores
+  wordWithUnderscores = replaceWithUnderScore(currentWord);
+  wordProgressing = wordWithUnderscores;
 }
 for (let i = 0; i < wordWithUnderscores.length; i++) {
-  let span = document.createElement('span')
-  span.textContent = `${wordWithUnderscores[i]}`
-  mainWord.appendChild(span)
+  let span = document.createElement('span');
+  span.textContent = `${wordWithUnderscores[i]}`;
+  mainWord.appendChild(span);
 }
 
 
@@ -73,43 +71,39 @@ for (let i = 0; i < wordWithUnderscores.length; i++) {
 let missingLetters = [];
 for (let i = 0; i < wordWithUnderscores.length; i++) {
   if (wordWithUnderscores[i] == '_') {
-    missingLetters.push([currentWord[i], i])
+    missingLetters.push([currentWord[i], i]);
   }
 }
 
 let count = 0
 window.addEventListener('keydown', () => {
-  let letterPressed = window.event.key
-
+  let letterPressed = window.event.key;
   if (missingLetters[count][1] == undefined || alphabet.includes(letterPressed) != true) {
     return;
   }
-
   if (letterPressed == currentWord[missingLetters[count][1]]) {
     typingInput.value = '';
-    mainWord.children[missingLetters[count][1]].textContent = `${letterPressed}`
+    mainWord.children[missingLetters[count][1]].textContent = `${letterPressed}`;
 
     if (mainWord.textContent == currentWord) {
-      result.textContent = "YOU WON"
-      result.style.color = "#3a6efb"
-      
-      let dis = document.createAttribute('disabled')
-      typingInput.setAttributeNode(dis)
+      result.textContent = "YOU WON";
+      result.style.color = "#3a6efb";
+      let dis = document.createAttribute('disabled');
+      typingInput.setAttributeNode(dis);
     }
     count += 1;
   } else {
     typingInput.value = '';
     guesses -= 1;
     if (guesses <= 0) {
-      guessesRemaining.textContent = `Done`
-      result.textContent = "YOU LOSE"
-      result.style.color = "#dc3545"
-      mainWord.textContent = `${currentWord}`
-
-      let dis = document.createAttribute('disabled')
-      typingInput.setAttributeNode(dis)
+      guessesRemaining.textContent = `Done`;
+      result.textContent = "YOU LOSE";
+      result.style.color = "#dc3545";
+      mainWord.textContent = `${currentWord}`;
+      let dis = document.createAttribute('disabled');
+      typingInput.setAttributeNode(dis);
     } else {
-      guessesRemaining.textContent = `${guesses}`
+      guessesRemaining.textContent = `${guesses}`;
       incorrectGuess.textContent += ` ${letterPressed}`;
     }
   }
